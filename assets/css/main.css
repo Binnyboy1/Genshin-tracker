@@ -1,0 +1,290 @@
+:root {
+    /* colors */
+    --dark: #271f36;
+    --font-dark: #4c5668;
+    --light: #f7f2f0;
+    --light25: #f7f2f040;
+    --✰3: #519dd7;
+    --✰4: #8d7fce;
+    --✰5: #e28a4b;
+
+    /* calcs */
+    --profile-w: 130px;
+    --profile-h: var(--profile-w);
+    --profile-footer: calc(var(--profile-h) * 0.3);
+    --profile-border: calc(var(--profile-w) * 0.03);
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+}
+.font {
+    font-family: 'Gotham';
+    font-size: calc(var(--profile-footer)/3 * 2);
+    font-weight: 900;
+}
+main {
+    transform: scale(0.9);
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+[id*="char"] {
+    margin: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Card set-up */
+.rarity {
+    padding: calc(var(--profile-border) * 1.25);
+    width: var(--profile-w);
+    border-radius: calc(var(--profile-border)/2);
+    box-shadow:0px 0px 0px var(--profile-border) var(--light25);
+
+    position: relative;
+}
+.card {
+    width: 100%;
+    background-color: var(--light);
+    border-radius: calc(var(--profile-border)/4);
+    box-shadow:0px 0px 0px calc(var(--profile-border)/2) var(--light);
+}
+.card-top {
+    width: 100%;
+    height: var(--profile-h);
+
+    background-color: var(--dark);
+    border-radius: calc(var(--profile-border)/2);
+    border-bottom-right-radius: 20px;
+}
+.card-top .profile {
+    width: inherit;
+    height: calc(var(--profile-h) - 2px);
+
+    background-color: inherit;
+    border-radius: calc(var(--profile-border)/2);
+    border-bottom-right-radius: inherit;
+
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+}
+.card-bottom {
+    width: 100%;
+    height: var(--profile-footer);
+
+    color: var(--font-dark);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.R {
+    position: absolute;
+    margin: 6px;
+    width: calc(var(--profile-w) * 0.185);
+    height: calc(var(--profile-w) * 0.215);
+    background-color: var(--✰5);
+    border-radius: calc(var(--profile-border)/2);
+
+    text-align: center;
+}
+
+/* Cons set-up */
+.cons {
+    /* box-shadow:0px 0px 0px calc(var(--profile-border)/2) white; */
+    width: calc(var(--profile-w)/3 + var(--profile-w)/42);
+    height: calc(var(--profile-h) + var(--profile-footer));
+    margin: var(--profile-border) calc(var(--profile-border) * 5);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.circle {
+    border-radius: 50%;
+    background-color: var(--light25);
+}
+.w-Sm {
+    width: calc(var(--profile-w)/5.5);
+    height: calc(var(--profile-w)/5.5);
+}
+.c2, .c5 {
+    position: relative;
+    left: calc(var(--profile-w)/8);
+}
+.c3, .c4 {
+    position: relative;
+    left: calc(var(--profile-w)/6);
+    margin: calc(var(--profile-w)/42);
+}
+
+/* Talents set-up */
+.talents {
+    margin-top: calc(var(--profile-w) * 0.2);
+    margin-left: calc(var(--profile-w) * 0.2);
+
+    display: grid;
+    grid:
+        "T1     T2      T3"    max-content
+        "Lv1    Lv2     Lv3"   var(--profile-footer)
+        / 1fr   1fr     1fr;
+}
+.w-Lg {
+    width: calc(var(--profile-w) * 0.77);
+    height: calc(var(--profile-w) * 0.77);
+
+    margin: calc(var(--profile-w) * 0.04);
+    background-image: url("");
+    background-size: calc(var(--profile-w) * 0.525);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+[class*="Lv"] {
+    text-align: center;
+}
+
+/* Artifact set-up */
+.artifacts {
+    margin-top: calc(var(--profile-w) * 0.1);
+    margin-left: calc(var(--profile-w) * 0.2);
+    height: calc(var(--profile-w) * 1.05);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    position: relative;
+}
+.margin {
+    padding: calc(var(--profile-border) * 0.75);
+    border-radius: 50%;
+    width: var(--profile-w);
+    height: var(--profile-w);
+
+    box-shadow:0px 0px 0px calc(var(--profile-border) * 1.5) var(--dark);
+    background-color: var(--dark);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.artifacts .margin .rarity {
+    border-radius: 50%;
+    width: calc(var(--profile-w) * 0.925);
+    height: calc(var(--profile-w) * 0.925);
+}
+.w-XLg {
+    width: 100%;
+    height: 100%;
+
+    background-image: url("");
+    background-size: calc(var(--profile-w) * 0.925);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.A-container {
+    margin-left: calc(var(--profile-w) * 0.5);
+    height: 100%;
+    width: max-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+.A-bottom {
+    position: relative;
+    height: var(--profile-footer);
+    background-color: var(--light);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: calc(var(--profile-w) * 0.73);
+    color: var(--font-dark);
+}
+.A-bottom .A-right {
+    position: relative;
+    top: calc(var(--profile-border) * 0.5);
+    right: calc(var(--profile-border) * -0.5);
+    width: var(--profile-w);
+    height: inherit;
+    background-color: var(--dark);
+    border-top-left-radius: 20px;
+
+    display: flex;
+    justify-self: right;
+    justify-content: center;
+}
+.A-star {
+    background-image: url('https://images.emojiterra.com/twitter/v13.1/512px/2b50.png');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0) invert(1);
+
+    margin: calc(var(--profile-border) * 2) calc(var(--profile-border) * 0.5);
+    width: calc(var(--profile-footer) * 0.7);
+    height: calc(var(--profile-footer) * 0.7);
+}
+.A-top {
+    margin-bottom: calc(var(--profile-border) * 1.25);
+    border-bottom: var(--profile-border) solid var(--light25);
+    padding-left: calc(var(--profile-w) * 0.73);
+
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.w-Md {
+    width: calc(var(--profile-w) * 0.615);
+    height: calc(var(--profile-w) * 0.615);
+
+    margin-right: calc(var(--profile-w) * 0.08);
+    background-image: url("");
+    background-size: calc(var(--profile-w) * 0.43);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*
+Font set-up
+*/
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/Gotham-Bold.eot'); /* IE9 Compat Modes */
+    src: url('fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'); /* IE6-IE8 */
+    src: url('fonts/Gotham-Bold.woff') format('woff'); /* Modern Browsers */
+    src: url('fonts/Gotham-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+    src: url('fonts/Gotham-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+    font-weight: 700;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/Gotham-Medium.eot'); /* IE9 Compat Modes */
+    src: url('fonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'); /* IE6-IE8 */
+    src: url('fonts/Gotham-Medium.woff') format('woff'); /* Modern Browsers */
+    src: url('fonts/Gotham-Medium.ttf')  format('truetype'); /* Safari, Android, iOS */
+    src: url('fonts/Gotham-Medium.svg#svgFontName') format('svg'); /* Legacy iOS */
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/Gotham-Thin.eot'); /* IE9 Compat Modes */
+    src: url('fonts/Gotham-Thin.eot?#iefix') format('embedded-opentype'); /* IE6-IE8 */
+    src: url('fonts/Gotham-Thin.woff') format('woff'); /* Modern Browsers */
+    src: url('fonts/Gotham-Thin.ttf')  format('truetype'); /* Safari, Android, iOS */
+    src: url('fonts/Gotham-Thin.svg#svgFontName') format('svg'); /* Legacy iOS */
+    font-weight: 300;
+    font-style: normal;
+}
